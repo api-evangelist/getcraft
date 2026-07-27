@@ -1,7 +1,25 @@
 aid: getcraft
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/getcraft.png
 name: GetCraft
-description: GetCraft is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: GetCraft is a Southeast Asian creative and content-marketing marketplace, headquartered
+  in Indonesia and backed by 500 Global, that brands itself as "The Creative Industry's Premium
+  Directory." It connects brands and agencies with a vetted network of freelance creators and
+  production partners ("Crafters") for content, video, design, advertising, and marketing work,
+  spanning a talent Directory, a Jobs board, Managed project services, and a Community. Its
+  companion publication, MarketingCraft, is a bilingual (English/Indonesian) content hub of
+  articles, events, tutorials, jobs, and research for marketers and creators. GetCraft exposes no
+  public developer or API surface; this record is an identity/enrichment profile.
 url: https://raw.githubusercontent.com/api-evangelist/getcraft/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,11 +27,21 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status-note: Primary web properties (getcraft.com, help.getcraft.com, marketingcraft.getcraft.com)
+  were returning HTTP 502 / TLS handshake failures at enrichment time (2026-07-19); identity and
+  link URLs confirmed via the provider's own Internet Archive snapshots.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
+- Content Marketing
+- Creative Marketplace
+- Freelance Talent
+- Advertising
+- Marketing
+- Indonesia
+- Southeast Asia
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,5 +49,20 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/getcraft-domain-security.yml
 - type: Website
+  url: https://getcraft.com
+- type: Blog
   url: https://marketingcraft.getcraft.com
+- type: HelpCenter
+  url: https://help.getcraft.com/en/knowledge
+- type: TermsOfService
+  url: https://getcraft.com/terms-and-condition
+- type: SignUp
+  url: https://getcraft.com/sign-up-home
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
