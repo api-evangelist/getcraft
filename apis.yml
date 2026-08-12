@@ -28,11 +28,12 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 x-status-note: Primary web properties (getcraft.com, help.getcraft.com, marketingcraft.getcraft.com)
-  were returning HTTP 502 / TLS handshake failures at enrichment time (2026-07-19); identity and
-  link URLs confirmed via the provider's own Internet Archive snapshots.
+  were returning HTTP 502 / TLS handshake failures at enrichment time (2026-07-19) and were still
+  down when re-probed 2026-08-12; identity and link URLs confirmed via the provider's own Internet
+  Archive snapshots and its public GitHub organization (github.com/GetCraft, blog getcraft.com).
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-12'
 tags:
 - Company
 - Content Marketing
@@ -61,8 +62,38 @@ common:
   url: https://getcraft.com/terms-and-condition
 - type: SignUp
   url: https://getcraft.com/sign-up-home
+- type: GitHubOrganization
+  url: https://github.com/GetCraft
+- type: SecurityPolicy
+  url: security/getcraft-security-policy.yml
+- type: LLMsTxt
+  url: llms/getcraft-llms.txt
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 3
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Full STEP 0b contract discovery re-run 2026-08-12; whole estate still HTTP 502.
+    Found and captured the provider's public GitHub organization and its published
+    security policy set.
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Every GetCraft host is dark — getcraft.com and api.getcraft.com sit behind a Google
+    Cloud load balancer that answers HTTP 502 on every path including / and
+    /.well-known/*, help.getcraft.com (HubSpot) and marketingcraft.getcraft.com (Webflow)
+    both fail the TLS handshake with deprovisioned certificates, and the getcraft.com
+    registration expires 2026-08-27 with no renewal since 2025-08-12; the only GetCraft
+    surface still serving is its 2020-vintage security-policy GitBook.
+  evidence:
+  - url: https://getcraft.com/
+    status: 502
+  - url: https://api.getcraft.com/openapi.json
+    status: 502
+  - url: https://getcraft.com/.well-known/agent-card.json
+    status: 502
+  - url: https://getcraft.gitbook.io/security-policy
+    status: 200
+  checked: '2026-08-12'

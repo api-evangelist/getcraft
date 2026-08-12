@@ -1,0 +1,113 @@
+generated: '2026-08-12'
+method: probed
+source: live HTTP probes of getcraft.com and api.getcraft.com
+note: >-
+  Every /.well-known/ path returned HTTP 502 from the Google Cloud load balancer in
+  front of getcraft.com and api.getcraft.com. This is a whole-estate origin outage,
+  not a per-path 404 — the TLS terminator answers with a valid, current Google Trust
+  Services certificate while every backend errors. Because nothing returned a document,
+  NO WellKnown or SecurityTxt pointer is wired into apis.yml. The two remaining
+  subdomains could not be probed at all: help.getcraft.com (HubSpot CMS) fails the TLS
+  handshake with an sslv3 alert and marketingcraft.getcraft.com (Webflow) fails with a
+  tlsv1 internal error, both consistent with deprovisioned hosted-platform certificates.
+hosts:
+- host: getcraft.com
+  reachable: true
+  origin_status: 502
+- host: api.getcraft.com
+  reachable: true
+  origin_status: 502
+- host: help.getcraft.com
+  reachable: false
+  origin_status: null
+  error: TLS handshake failure (sslv3 alert handshake failure) — HubSpot CMS cert not provisioned
+- host: marketingcraft.getcraft.com
+  reachable: false
+  origin_status: null
+  error: TLS handshake failure (tlsv1 alert internal error) — Webflow proxy cert not provisioned
+probes:
+- host: getcraft.com
+  path: /.well-known/security.txt
+  status: 502
+  file: null
+- host: getcraft.com
+  path: /.well-known/openid-configuration
+  status: 502
+  file: null
+- host: getcraft.com
+  path: /.well-known/oauth-authorization-server
+  status: 502
+  file: null
+- host: getcraft.com
+  path: /.well-known/api-catalog
+  status: 502
+  file: null
+- host: getcraft.com
+  path: /.well-known/ai-plugin.json
+  status: 502
+  file: null
+- host: getcraft.com
+  path: /.well-known/agent-card.json
+  status: 502
+  file: null
+- host: getcraft.com
+  path: /.well-known/agent.json
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/security.txt
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/openid-configuration
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/oauth-authorization-server
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/api-catalog
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/ai-plugin.json
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/agent-card.json
+  status: 502
+  file: null
+- host: api.getcraft.com
+  path: /.well-known/agent.json
+  status: 502
+  file: null
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery was run in full against both hosts that resolve and
+    answer. Every REST spec path, the GraphQL surface and both agent-card paths
+    returned 502. No machine-readable contract could be confirmed or ruled out from
+    the live estate; the finding is an outage, not an absence of a spec.
+  probes:
+  - path: /openapi.json
+    status: 502
+  - path: /openapi.yaml
+    status: 502
+  - path: /swagger.json
+    status: 502
+  - path: /v1/openapi.json
+    status: 502
+  - path: /api-docs
+    status: 502
+  - path: /docs
+    status: 502
+  - path: /redoc
+    status: 502
+  - path: /graphql
+    status: 502
+  - path: /llms.txt
+    status: 502
+  - path: /robots.txt
+    status: 502
+  - path: /sitemap.xml
+    status: 502

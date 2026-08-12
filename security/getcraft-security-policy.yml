@@ -1,0 +1,95 @@
+generated: '2026-08-12'
+method: searched
+source: https://github.com/GetCraft/Security-Policy
+name: GetCraft Security Policy
+summary: >-
+  GetCraft publishes its internal information-security policy set publicly, as a
+  GitBook-backed repository on its own GitHub organization. Fifteen documents cover data
+  protection, encryption, acceptable use, data breach response, data classification,
+  disaster recovery, email, passwords, security response planning, remote access, and
+  server/database security. The content is derived from the SANS policy templates and
+  describes GetCraft's own controls; it is an internal-controls policy set, NOT an
+  external vulnerability-disclosure program.
+ownership_check: >-
+  The GitHub organization github.com/GetCraft declares blog "getcraft.com" and location
+  "South East Asia", matching this company; the repository is named "GetCraft's Security
+  Policy" and every document names GetCraft as the policy owner. Not a fork.
+published:
+  repository: https://github.com/GetCraft/Security-Policy
+  rendered_site: https://getcraft.gitbook.io/security-policy
+  license: MIT
+  default_branch: master
+  created: '2020-10-03'
+  last_updated: '2020-10-05'
+  fork: false
+external_disclosure_channel: false
+external_disclosure_note: >-
+  No researcher-facing reporting channel is published anywhere in the policy set — no
+  security contact address, no responsible-disclosure page, no bug bounty, and no
+  /.well-known/security.txt (that path returns 502 along with the rest of the estate).
+  Section 6 "Reporting Requirements" and the Security Response Plan Policy both address
+  internal escalation to GetCraft's DevSecOps team only. Do not read this artifact as a
+  vulnerability disclosure program.
+staleness_note: >-
+  Last commit 2020-10-05; the policy set has not been revised in almost six years, and
+  the company's production estate has been returning HTTP 502 since at least 2026-07-19.
+documents:
+- title: Data Protection Standard
+  path: README.md
+  url: https://github.com/GetCraft/Security-Policy/blob/master/README.md
+  topic: access control / least privilege
+- title: Acceptable Encryption Policy
+  path: general/acceptable-encryption-policy.md
+  topic: cryptography
+- title: Acceptable Use Policy
+  path: general/acceptable-use-policy.md
+  topic: acceptable use
+- title: Data Breach Response Policy
+  path: general/data-breach-policy.md
+  topic: incident response
+- title: Data Classification Policy
+  path: general/data-classification-policy.md
+  topic: data classification
+- title: Disaster Recovery Plan Policy
+  path: general/disaster-recovery-policy.md
+  topic: business continuity
+- title: Email Policy
+  path: general/email-policy.md
+  topic: email
+- title: Password Construction Guidelines
+  path: general/password-construction-guidelines.md
+  topic: credentials
+- title: Password Protection Policy
+  path: general/password-protection-policy.md
+  topic: credentials
+- title: Security Response Plan Policy
+  path: general/security-response-policy.md
+  topic: vulnerability triage + remediation SLAs (internal)
+- title: Remote Access Policy
+  path: network-security/remote-access-policy.md
+  topic: network access
+- title: Remote Access Tools Policy
+  path: network-security/remote-access-tools-policy.md
+  topic: network access
+- title: Database Credentials Coding Policy
+  path: server-security/database-credentials-policy.md
+  topic: secrets handling
+- title: Information Logging Standard
+  path: server-security/information-logging-standard.md
+  topic: logging
+- title: Server Security Policy
+  path: server-security/server-security-policy.md
+  topic: server hardening
+x-evidence:
+  fetched: '2026-08-12'
+  probes:
+  - url: https://github.com/GetCraft
+    status: 200
+  - url: https://github.com/GetCraft/Security-Policy
+    status: 200
+  - url: https://getcraft.gitbook.io/security-policy
+    status: 200
+  - url: https://raw.githubusercontent.com/GetCraft/Security-Policy/master/README.md
+    status: 200
+  - url: https://raw.githubusercontent.com/GetCraft/Security-Policy/master/general/security-response-policy.md
+    status: 200
