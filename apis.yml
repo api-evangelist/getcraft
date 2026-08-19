@@ -31,7 +31,7 @@ x-status-note: Primary web properties (getcraft.com, help.getcraft.com, marketin
   were returning HTTP 502 / TLS handshake failures at enrichment time (2026-07-19) and were still
   down when re-probed 2026-08-12; identity and link URLs confirmed via the provider's own Internet
   Archive snapshots and its public GitHub organization (github.com/GetCraft, blog getcraft.com).
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-08-12'
 tags:
